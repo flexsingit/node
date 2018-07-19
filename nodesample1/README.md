@@ -31,10 +31,10 @@
         <!-- 
             {
                 "name":"Manoj Bhagat",
-                "emailid":"manoj@gmail.com",
+                "emailid":"test@gmail.com",
                 "password":"12345",
-                "username":"manoj1989",
-                "mobile":"9582612232"
+                "username":"test",
+                "mobile":"9999999999"
             }
         -->
         - username is unique. if you will try to signup with the same unique name api will through the error.
