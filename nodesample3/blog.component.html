@@ -1,0 +1,32 @@
+
+<section class="mid_sec blog-section">
+	<div class="container  container940">
+	   <div class="row">
+	   		<div class="col-md-9" *ngIf="blogs.list.length === 0" ><div class="please-wait"><span>Loading....</span></div></div>
+	      <div class="col-md-9" *ngIf="blogs.list.length > 0">
+	         <div class="blog_cont" *ngFor="let blog of blogs.list ;trackBy: trackByFn">
+	            <h3>
+	            	<a routerLink="/blog/{{blog.slug}}" title="{{blog.title}}">{{blog.title}}</a>
+	            </h3>
+	         
+	            <div class="post_meta"><small>{{blog.blog_post_date | date:'longDate'}}</small></div>
+				<a routerLink="/blog/{{blog.slug}}" title="{{blog.title}}"><img *ngIf="blog.image" [src]="blog.image.secure_url" [alt]="blog.title" [title]="blog.title"></a>
+				<p *ngIf="blog && blog.summary">{{blog.summary | truncate : 200 : true}}</p>
+				
+	         </div>
+	         
+	         <mat-paginator 
+	         	[length]="blogs.paging.count"
+	         	[hidePageSize]="true"
+	            [pageSize]="blogs.paging.limit"
+	            [pageIndex]="blogs.paging.page"
+	            (page)="onPageChange($event)"
+	            [showFirstLastButtons]="true">
+	         </mat-paginator>
+	      </div>
+	      	<div class="col-md-3">
+	      		<recent-posts></recent-posts>
+	  		</div>
+	   </div>
+	</div>
+</section>
